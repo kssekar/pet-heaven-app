@@ -19,7 +19,7 @@ const Cats = () => {
       <div className="search-bar">
         <div className="search-input-wrap">
           <span>&#128269;</span>
-          <input type="text" placeholder="Search by name..." value={query} onChange={(e) => setQuery(e.target.value)} />
+          <input type="text" placeholder="Search by breed..." value={query} onChange={(e) => setQuery(e.target.value)} />
         </div>
         <select value={filter} onChange={(e) => setFilter(e.target.value)}>
           <option value="all">All Pets</option>
