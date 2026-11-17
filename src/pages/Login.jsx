@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useApp } from '../components/AppContext'
 
 const Login = () => {
-  const { loginMember } = useApp() // Use loginMember instead of registerMember
+  const { loginMember } = useApp()
   const navigate = useNavigate()
   const [form, setForm] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
@@ -12,20 +12,16 @@ const Login = () => {
     e.preventDefault()
     setError('')
 
-    // 1. Get the master list of all registered users
     const existingUsers = JSON.parse(localStorage.getItem('petHeavenAllUsers') || '[]')
 
-    // 2. Find a user with a matching email AND password
     const validUser = existingUsers.find(
       (u) => u.email.toLowerCase() === form.email.toLowerCase() && u.password === form.password
     )
 
     if (validUser) {
-      // Success! Log them in
       loginMember(validUser)
       navigate('/pets')
     } else {
-      // Check if the email exists but the password is wrong (for better error messages)
       const emailExists = existingUsers.find((u) => u.email.toLowerCase() === form.email.toLowerCase())
       
       if (emailExists) {
