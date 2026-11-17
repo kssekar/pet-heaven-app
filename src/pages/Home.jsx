@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useApp } from '../components/AppContext'
 import PetCard from '../components/PetCard'
 
-// Import the avatars from your assets folder
 import avatar1 from '../assets/avatar1.jpg'
 import avatar2 from '../assets/avatar2.jpg'
 
@@ -11,7 +10,6 @@ const Home = () => {
   const { pets } = useApp()
   const featured = pets.filter((p) => p.status === 'available').slice(0, 3)
 
-  // State for the reviews
   const [reviews, setReviews] = useState([
     { id: 1, name: 'Sarah', image: avatar1, text: 'Adopted my lovely dog Max here. The process was smooth and the staff truly care!' },
     { id: 2, name: 'David', image: avatar2, text: 'Volunteering here is the best decision I ever made. A wonderful community.' }
@@ -22,11 +20,10 @@ const Home = () => {
     e.preventDefault()
     if (!newReview.trim()) return
     
-    // Add the new review using a default avatar (or you can use a placeholder)
     setReviews([...reviews, { 
       id: Date.now(), 
       name: 'Anonymous Member', 
-      image: avatar1, // Just using avatar1 as a default for new reviews
+      image: avatar1,
       text: newReview 
     }])
     setNewReview('')
