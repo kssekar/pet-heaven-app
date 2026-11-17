@@ -64,7 +64,6 @@ export const AppProvider = ({ children }) => {
 
   const registerMember = (data) => setMember({ ...data, registeredAt: new Date().toISOString() }) 
   
-  // ADDED THE MISSING LOGIN FUNCTION HERE
   const loginMember = (data) => setMember(data) 
   
   const logout = () => setMember(null)
