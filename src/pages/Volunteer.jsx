@@ -1,5 +1,4 @@
 import { useState } from 'react'
-// 1. Import the images from your assets folder
 import cleanImg from '../assets/clean.jpg'
 import walkImg from '../assets/walk.jpg'
 import careImg from '../assets/care.jpg'
@@ -17,7 +16,6 @@ const Volunteer = () => {
     setSubmitted(true)
   }
 
-  // 2. Replace the icon strings with the imported image variables
   const activities = [
     { 
       title: 'Shelter Cleaning', 
