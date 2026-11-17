@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useApp } from '../components/AppContext'
-import defaultDog from '../assets/dog1.jpeg' // <-- IMPORT A DEFAULT IMAGE
-import defaultCat from '../assets/cat1.jpeg' // <-- IMPORT A DEFAULT IMAGE
+import defaultDog from '../assets/dog1.jpeg'
+import defaultCat from '../assets/cat1.jpeg'
 
 const Services = () => {
   const { addPet } = useApp()
@@ -14,7 +14,6 @@ const Services = () => {
     addPet({
       name: form.petName, species: form.species, breed: 'Mixed', age: 'Unknown', gender: 'Unknown',
       description: `Released: ${form.reason}`,
-      // 3. USE THE LOCAL IMPORT BASED ON SPECIES
       image: form.species === 'Dog' ? defaultDog : defaultCat, 
     })
     alert('Release request submitted!')
