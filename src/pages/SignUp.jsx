@@ -6,7 +6,6 @@ const SignUp = () => {
   const { registerMember } = useApp()
   const navigate = useNavigate()
   
-  // 1. Added 'password' to the initial state
   const [form, setForm] = useState({ name: '', email: '', password: '' })
   const [errors, setErrors] = useState({})
 
@@ -20,7 +19,6 @@ const SignUp = () => {
     
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
 
-    // NEW: Save the account to a master list of users
     const existingUsers = JSON.parse(localStorage.getItem('petHeavenAllUsers') || '[]')
     const userExists = existingUsers.find(u => u.email === form.email)
 
@@ -32,7 +30,6 @@ const SignUp = () => {
     const newUsersList = [...existingUsers, form]
     localStorage.setItem('petHeavenAllUsers', JSON.stringify(newUsersList))
 
-    // Log them in
     registerMember(form)
     navigate('/pets')
   }
